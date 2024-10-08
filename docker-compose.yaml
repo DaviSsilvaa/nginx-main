@@ -2,14 +2,14 @@ version: '3.8'
 
 services:
   message-sender:
-    build: ./message-sender
+    build: ./message-sender  # Verifique se o caminho está correto
     networks:
       - message_net
     ports:
-      - "5001:5000"  
+      - "5001:5000"
 
   message-receiver:
-    build: ./message-receiver
+    build: ./message-receiver  # Verifique se o caminho está correto
     networks:
       - message_net
     ports:

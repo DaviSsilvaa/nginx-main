@@ -5,7 +5,7 @@ app = Flask(__name__)
 @app.route('/receive', methods=['POST'])
 def receive_message():
     message = request.json.get('message')
-    print(f"Received message: {message}")  # Adicione esta linha
+    print(f"Received message: {message}")
     return f"Message received: {message}", 200
 
 if __name__ == "__main__":
