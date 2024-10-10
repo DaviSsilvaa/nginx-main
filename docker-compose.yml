@@ -1,0 +1,37 @@
+# docker-compose.yml
+version: '3'
+services:
+  app1:
+    build: ./app
+    container_name: app1
+    networks:
+      - mynetwork
+
+  app2:
+    build: ./app
+    container_name: app2
+    networks:
+      - mynetwork
+
+  app3:
+    build: ./app
+    container_name: app3
+    networks:
+      - mynetwork
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app1
+      - app2
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
